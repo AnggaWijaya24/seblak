@@ -75,8 +75,6 @@ body {
   color: #cc5500;
 }
 
-
-
 /* Header section */
 .header {
   background: url('../images/header.png') center center no-repeat;
@@ -138,7 +136,6 @@ body {
   color: #cc5500;
   border: 2px solid #cc5500;
 }
-
 
 /* About section */
 .basic-1 {
@@ -280,3 +277,36 @@ body {
   font-weight: bold;
   border-radius: 8px;
 }
+
+/* === Tambahan untuk responsive toggle dan smooth nav === */
+
+/* Toggle ikon hamburger */
+.navbar-toggler.collapsed .fa-bars {
+  display: inline-block;
+}
+.navbar-toggler.collapsed .fa-times {
+  display: none;
+}
+.navbar-toggler:not(.collapsed) .fa-bars {
+  display: none;
+}
+.navbar-toggler:not(.collapsed) .fa-times {
+  display: inline-block;
+}
+
+/* Responsive gallery tombol di mobile */
+@media (max-width: 768px) {
+  .gallery-buttons {
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    margin: 5px;
+  }
+}
+
+/* Tambahan untuk nav-link aktif */
+.navbar-custom .nav-link.active {
+  color: #cc5500 !important;
+}
+
