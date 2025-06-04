@@ -18,46 +18,30 @@ body {
 
 .navbar-custom .navbar-brand,
 .navbar-custom .nav-link {
-  position: relative;
-  color: #fff;
+  color: #fff; /* Warna teks saat navbar transparan */
   font-weight: 700;
   transition: color 0.3s ease;
 }
 
-.navbar-custom:not(.scrolled) .navbar-brand,
-.navbar-custom:not(.scrolled) .nav-link {
-  color: #484a46;
-  text-shadow: none;
-}
-
-/* Saat navbar di-scroll */
 .navbar-custom.scrolled .navbar-brand,
 .navbar-custom.scrolled .nav-link {
-  color: #fff;
+  color: #fff; /* Warna teks saat navbar padat */
 }
 
-/* Hover dan active state */
 .navbar-custom .nav-link:hover,
 .navbar-custom .nav-link.active {
-  color: #cc5500 !important;
-  text-shadow: none;
-}
-
-.navbar-custom .nav-link:hover::after,
-.navbar-custom .nav-link.active::after {
-  width: 100%;
+  color: #cc5500 !important; /* Warna saat hover atau aktif */
 }
 
 #header, #intro {
   min-height: 100vh; /* agar bisa mendominasi layar */
 }
 
-/* Sosial media - Tanpa bingkai, ikon langsung */
 .social-icons {
   display: flex;
   align-items: center;
   gap: 16px; /* Jarak antar ikon */
-  padding-left: 15px;
+  padding-left: 15px; /* Menambahkan padding untuk ikon sosial media */
 }
 
 /* Default style saat navbar transparan */
@@ -89,16 +73,6 @@ body {
   text-align: center;
 }
 
-.text-container span {
-  color: #cc5500;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.text-container span:hover {
-  color: #cc5500;
-}
-
 .header h1 {
   margin-bottom: 0.5rem;
   color: #5a2c0c;
@@ -106,29 +80,16 @@ body {
   line-height: 1.2;
 }
 
-.header .p-large {
-  margin-bottom: 2rem;
-  color: #444444;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 20px;
-}
-
 .header .btn-solid-lg {
   display: inline-block;
   margin-top: 20px;
-  margin-right: 0.5rem;
-  margin-bottom: 1.25rem;
   padding: 12px 24px;
   background: #cc5500;
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.3s ease, opacity 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .header .btn-solid-lg:hover {
@@ -157,26 +118,6 @@ body {
   margin-bottom: 1.375rem;
   font-size: 1.7rem;
   color: #484a46;
-}
-
-.basic-1 .testimonial-author {
-  color: #484a46;
-}
-
-.basic-1 .image-container {
-  overflow: hidden;
-  border-radius: 0.25rem;
-}
-
-.basic-1 .image-container img {
-  width: 100%;
-  height: auto;
-  border-radius: 0.25rem;
-  transition: transform 0.3s;
-}
-
-.basic-1 .image-container:hover img {
-  transform: scale(1.15);
 }
 
 /* Galeri */
@@ -254,59 +195,3 @@ body {
   font-weight: 600;
   color: #e74c3c;
 }
-
-/* Order section */
-.order-section {
-  background-color: #fcd34d;
-}
-
-.order-form {
-  background-color: #fff;
-  color: #000;
-  border-radius: 12px;
-}
-
-.order-form .form-control,
-.order-form .form-select {
-  background-color: #f3f4f6;
-  border: 1px solid #ccc;
-  color: #000;
-}
-
-.order-form .btn {
-  font-weight: bold;
-  border-radius: 8px;
-}
-
-/* === Tambahan untuk responsive toggle dan smooth nav === */
-
-/* Toggle ikon hamburger */
-.navbar-toggler.collapsed .fa-bars {
-  display: inline-block;
-}
-.navbar-toggler.collapsed .fa-times {
-  display: none;
-}
-.navbar-toggler:not(.collapsed) .fa-bars {
-  display: none;
-}
-.navbar-toggler:not(.collapsed) .fa-times {
-  display: inline-block;
-}
-
-/* Responsive gallery tombol di mobile */
-@media (max-width: 768px) {
-  .gallery-buttons {
-    text-align: center;
-    flex-wrap: wrap;
-  }
-  .filter-btn {
-    margin: 5px;
-  }
-}
-
-/* Tambahan untuk nav-link aktif */
-.navbar-custom .nav-link.active {
-  color: #cc5500 !important;
-}
-
