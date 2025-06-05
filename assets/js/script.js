@@ -43,11 +43,56 @@ document.addEventListener('DOMContentLoaded', function () {
       if (target) {
         window.scrollTo({
           top: target.offsetTop - 70, // Sesuaikan offset dengan tinggi navbar
-          behavior: 'smooth'
+          behavior: 'smooth' // Pastikan ini ada untuk smooth scroll
         });
       }
     });
   });
+
+  // Menambahkan event listener untuk menu
+document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+  link.addEventListener('click', function() {
+
+navbarToggler.addEventListener('click', () => {
+const navbarToggler = document.querySelector('.navbar-toggler');
+const navbarCollapse = document.querySelector('.collapse');
+
+navbarToggler.addEventListener('click', () => {
+  navbarCollapse.classList.toggle('show');
+  navbarToggler.classList.toggle('open');
+});
+
+document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+  link.addEventListener('click', function () {
+    navbarCollapse.classList.remove('show');
+    navbarToggler.classList.remove('open');
+  });
+});
+
+
+
+  // Toggle menu
+  const isOpen = navbarCollapse.classList.toggle('show');
+
+  // Toggle icon berdasarkan status menu
+  if (isOpen) {
+    barsIcon.style.display = 'none';
+    timesIcon.style.display = 'inline';
+  } else {
+    barsIcon.style.display = 'inline';
+    timesIcon.style.display = 'none';
+  }
+});
+
+    
+    // Menutup navbar setelah tautan diklik
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    if (navbarCollapse) {
+      navbarCollapse.classList.remove('show'); // Menutup menu
+    }
+  });
+});
+
 
   // Filter galeri
   const filterButtons = document.querySelectorAll('.filter-btn');

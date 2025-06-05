@@ -5,59 +5,157 @@ body {
   padding: 0;
 }
 
-/* Navbar */
+/* ============ NAVBAR UTAMA ============ */
 .navbar-custom {
   background-color: transparent;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .navbar-custom.scrolled {
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-bottom: none;
 }
 
 .navbar-custom .navbar-brand,
 .navbar-custom .nav-link {
-  color: #fff; /* Warna teks saat navbar transparan */
   font-weight: 700;
   transition: color 0.3s ease;
 }
 
+.navbar-custom:not(.scrolled) .navbar-brand,
+.navbar-custom:not(.scrolled) .nav-link {
+  color: #484a46;
+}
+
 .navbar-custom.scrolled .navbar-brand,
 .navbar-custom.scrolled .nav-link {
-  color: #fff; /* Warna teks saat navbar padat */
+  color: #ffffff;
 }
 
 .navbar-custom .nav-link:hover,
 .navbar-custom .nav-link.active {
-  color: #cc5500 !important; /* Warna saat hover atau aktif */
+  color: #fd6a00 !important;
 }
 
-#header, #intro {
-  min-height: 100vh; /* agar bisa mendominasi layar */
+
+/* ============ HAMBURGER ICON ============ */
+.navbar-toggler .navbar-icon {
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
 }
 
+.navbar-custom:not(.scrolled) .navbar-toggler .navbar-icon {
+  color: #484a46;
+}
+
+.navbar-custom.scrolled .navbar-toggler .navbar-icon {
+  color: #ffffff;
+}
+
+.navbar-toggler.open .navbar-icon::before {
+  content: "\f00d"; /* fa-times */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+
+/* ============ SOSIAL MEDIA ============ */
 .social-icons {
   display: flex;
   align-items: center;
-  gap: 16px; /* Jarak antar ikon */
-  padding-left: 15px; /* Menambahkan padding untuk ikon sosial media */
+  gap: 16px;
+  padding-left: 15px;
 }
 
-/* Default style saat navbar transparan */
 .navbar-custom:not(.scrolled) .social-icons a {
   color: black;
 }
-
-/* Default style saat navbar padat */
 .navbar-custom.scrolled .social-icons a {
   color: white;
 }
 
-/* Hover style berlaku untuk semua kondisi */
 .navbar-custom .social-icons a:hover {
-  color: #cc5500;
+  color: #fd6a00;
 }
+
+
+/* ============ MOBILE MODE ============ */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .menu-card {
+    height: auto;
+  }
+
+  .footer {
+    text-align: center;
+  }
+
+  .collapse {
+    display: none;
+  }
+
+  .collapse.show {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.7); /* transparan seperti desktop */
+    padding: 1rem 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-nav .nav-link {
+    display: block;
+    padding: 0.75rem;
+    font-weight: 700;
+    color: #484a46; /* warna seperti navbar transparan */
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link.active {
+    color: #fd6a00;
+    background-color: transparent; /* tidak perlu background solid saat hover */
+  }
+
+  /* Icon navbar di atas */
+  .navbar-custom:not(.scrolled) .navbar-toggler .navbar-icon {
+    color: #484a46;
+  }
+
+  .navbar-custom.scrolled .navbar-toggler .navbar-icon {
+    color: #ffffff;
+  }
+}
+
+/* Saat navbar sudah discroll dan menu mobile sedang dibuka */
+.navbar-custom.scrolled .collapse.show {
+  background-color: rgba(0, 0, 0, 0.8); /* Padat seperti navbar padat */
+  border-bottom: none;
+}
+
+.navbar-custom.scrolled .navbar-nav .nav-link {
+  color: white; /* Warna teks jadi putih */
+}
+
+.navbar-custom.scrolled .navbar-nav .nav-link:hover,
+.navbar-custom.scrolled .navbar-nav .nav-link.active {
+  color: #fd6a00; /* Hover sama dengan desktop */
+}
+
+
 
 /* Header section */
 .header {
@@ -73,6 +171,16 @@ body {
   text-align: center;
 }
 
+.text-container span {
+  color: #fd6a00;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.text-container span:hover {
+  color: #fd6a00;
+}
+
 .header h1 {
   margin-bottom: 0.5rem;
   color: #5a2c0c;
@@ -80,27 +188,44 @@ body {
   line-height: 1.2;
 }
 
+.header .p-large {
+  margin-bottom: 2rem;
+  color: #444444;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
 .header .btn-solid-lg {
   display: inline-block;
   margin-top: 20px;
+  margin-right: 0.5rem;
+  margin-bottom: 1.25rem;
   padding: 12px 24px;
-  background: #cc5500;
+  background: #fd6a00;
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
 .header .btn-solid-lg:hover {
   background-color: transparent;
-  color: #cc5500;
-  border: 2px solid #cc5500;
+  color: #fd6a00;
+  border: 2px solid #fd6a00;
 }
 
 /* About section */
+#intro {
+  margin-top: 1rem; /* Menambahkan jarak atas untuk menu */
+}
+
 .basic-1 {
-  padding-top: 6.5rem;
+  padding-top: 2.5rem;
   padding-bottom: 3rem;
 }
 
@@ -111,7 +236,7 @@ body {
 .basic-1 .section-title {
   margin-bottom: 0.5rem;
   font-size: 1.3rem;
-  color: #cc5500;
+  color: #fd6a00;
 }
 
 .basic-1 h2 {
@@ -120,10 +245,43 @@ body {
   color: #484a46;
 }
 
+.basic-1 p {
+  margin-bottom: 1rem; /* Jarak antar paragraf */
+  line-height: 1.6; /* Jarak antar baris untuk keterbacaan yang lebih baik */
+  color: #333; /* Warna teks yang lebih gelap untuk kontras */
+  max-width: 600px; /* Lebar maksimum untuk teks */
+}
+
+.basic-1 .testimonial-author {
+  color: #484a46;
+}
+
+.basic-1 .image-container {
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+
+.basic-1 .image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+  transition: transform 0.3s;
+}
+
+.basic-1 .image-container:hover img {
+  transform: scale(1.15);
+}
+
+
 /* Galeri */
 #gallery {
   padding: 0 15px;
   margin: 0 auto;
+}
+
+.gallery-img {
+  width: 100%;
+  height: auto; /* Memastikan proporsi gambar tetap terjaga */
 }
 
 #gallery img {
@@ -146,9 +304,9 @@ body {
   margin: 5px;
   padding: 6px 24px;
   font-size: 14px;
-  border: 2px solid #cc5500;
+  border: 2px solid #fd6a00;
   background-color: white;
-  color: #cc5500;
+  color: #fd6a00;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -156,7 +314,7 @@ body {
 
 .gallery-buttons .filter-btn:hover,
 .gallery-buttons .filter-btn.active {
-  background-color: #cc5500;
+  background-color: #fd6a00;
   color: white;
 }
 
@@ -181,17 +339,77 @@ body {
 }
 
 /* Menu cards */
+#menu {
+  margin-top: 3rem; /* Menambahkan jarak atas untuk menu */
+}
+
 .menu-card {
-  background-color: #fff;
-  border: 1px solid #eee;
+  background-color: #fd6a00; /* Warna oranye untuk kartu menu */
+  border: 1px solid #fd6a00; /* Border yang sedikit lebih gelap */
   transition: all 0.3s ease;
+  color: #333; /* Warna teks yang gelap untuk kontras */
+  padding: 15px; /* Tambahkan padding untuk ruang di dalam kartu */
+  border-radius: 8px; /* Tambahkan border-radius untuk sudut yang lebih halus */
+  height: 100px; /* Tinggi tetap untuk kartu menu */
+  display: flex; /* Menggunakan flexbox untuk tata letak */
+  flex-direction: column; /* Mengatur arah kolom */
+  justify-content: space-between; /* Menjaga jarak antara elemen */
+  overflow: hidden;
 }
 
 .menu-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff; /* Warna latar belakang saat hover */
+  border: 2px solid #fd6a00 ; /* Border oranye saat hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
 }
 
 .harga {
   font-weight: 600;
-  color: #e74c3c;
+  color: #000000; /* Warna merah untuk harga */
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #484a46; /* Warna latar belakang footer */
+  color: #ffffff; /* Warna teks */
+  padding: 40px 0; /* Padding atas dan bawah */
+}
+
+.footer h4 {
+  margin-bottom: 20px; /* Jarak bawah untuk judul */
+  font-size: 1.5rem; /* Ukuran font untuk judul */
+  color: #fd6a00; /* Warna judul */
+}
+
+.footer p {
+  margin-bottom: 15px; /* Jarak bawah untuk paragraf */
+}
+
+.footer .contact-info {
+  list-style: none; /* Menghilangkan bullet point */
+  padding: 0; /* Menghilangkan padding */
+}
+
+.footer .contact-info li {
+  margin-bottom: 10px; /* Jarak antar item kontak */
+}
+
+.footer .social-icons {
+  display: flex; /* Menggunakan flexbox untuk ikon sosial */
+  gap: 15px; /* Jarak antar ikon */
+}
+
+.footer .social-icon {
+  color: #ffffff; /* Warna ikon sosial */
+  font-size: 1.5rem; /* Ukuran ikon sosial */
+  transition: color 0.3s; /* Transisi warna saat hover */
+}
+
+.footer .social-icon:hover {
+  color: #fd6a00; /* Warna saat hover */
+}
+
+.footer .text-center {
+  margin-top: 20px; /* Jarak atas untuk teks hak cipta */
 }
